@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a57a95491317406baf7bea0527c3dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SPEED: {x: 0.1, y: 0.3}
+  SPEED: {x: 0.3, y: 0.3}
 --- !u!1 &1858063956
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,10 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290091bf0e465495d8a2f128881d47b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 735034475}
-  agent: {fileID: 0}
+  speed: 11
 --- !u!1 &1941373134
 GameObject:
   m_ObjectHideFlags: 0
