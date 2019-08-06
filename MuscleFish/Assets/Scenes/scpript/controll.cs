@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class controll : MonoBehaviour
 {
-    public Vector2 SPEED = new Vector2(0.05f, 0.05f);
+    public Vector2 SPEED = new Vector2(1f, 1f);
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +29,14 @@ public class controll : MonoBehaviour
         else if (Input.GetKey("down"))
         {
             Position.y -= SPEED.y;
+        }
+        else if (Input.GetKey("right"))
+        {
+            Position.x += SPEED.x;
+        }
+        else if (Input.GetKey("left"))
+        {
+            Position.x -= SPEED.x;
         }
         transform.position = Position;
     }
