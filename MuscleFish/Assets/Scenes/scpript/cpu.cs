@@ -18,6 +18,9 @@ public class cpu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Player.transform.position.x, Player.transform.position.y), speed * Time.deltaTime);
+        this.transform.position = Vector2.MoveTowards
+            (this.transform.position, new Vector2
+            (Player.transform.position.x, Player.transform.position.y)
+            , speed * Time.deltaTime);
     }
 }

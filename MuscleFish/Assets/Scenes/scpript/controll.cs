@@ -30,14 +30,6 @@ public class controll : MonoBehaviour
         {
             Position.y -= SPEED.y;
         }
-        else if (Input.GetKey("right"))
-        {
-            Position.x += SPEED.x;
-        }
-        else if (Input.GetKey("left"))
-        {
-            Position.x -= SPEED.x;
-        }
         transform.position = Position;
     }
 
