@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    //Buttom2をクリックする
     public void OnClick()
     {
-        Debug.Log("BUtton2 Click");
+        Debug.Log("Button click");
+    }
+    public void EndGame() {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying=false;
+#else
+        Application.Quit();
+#endif
     }
     // Start is called before the first frame update
     void Start()
