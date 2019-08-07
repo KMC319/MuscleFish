@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
 public class controll : MonoBehaviour
 {
-    public Text mytext;   
+       
  public Vector2 SPEED = new Vector2(1f, 1f);
     // Start is called before the first frame update
     void Start()
@@ -37,9 +37,17 @@ public class controll : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "girl") {
-            mytext.text = "game over";
-            }
-    }
+        if (collision.gameObject.tag == "girl")
+        {
 
+
+            this.gameObject.SetActive(false);
+
+            Invoke("GoToGameOver", 1.5f);
+        }
+        void GoToGameOver()
+        {
+            SceneManager.LoadScene("GO");
+        }
+    }
 }
