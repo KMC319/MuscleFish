@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+
 
 
 public class controll : MonoBehaviour
 {
-    public Vector2 SPEED = new Vector2(1f, 1f);
+    public Text mytext;   
+ public Vector2 SPEED = new Vector2(1f, 1f);
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,12 @@ public class controll : MonoBehaviour
             Position.y -= SPEED.y;
         }
         transform.position = Position;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "girl") {
+            mytext.text = "game over";
+            }
     }
 
 }

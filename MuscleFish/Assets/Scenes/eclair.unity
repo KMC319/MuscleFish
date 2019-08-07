@@ -217,7 +217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.134, y: 0.134}
+  m_Size: {x: 0.134, y: 0.13744956}
   m_EdgeRadius: 0
 --- !u!114 &735034478
 MonoBehaviour:
@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 1858063958}
   - component: {fileID: 1858063957}
   - component: {fileID: 1858063959}
+  - component: {fileID: 1858063960}
   m_Layer: 0
   m_Name: cpu
   m_TagString: Untagged
@@ -325,6 +326,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 11
+--- !u!61 &1858063960
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858063956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0030256324, y: -0.00031091273}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1765565, y: 0.17814729}
+  m_EdgeRadius: 0
 --- !u!1 &1941373134
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +404,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 54
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
