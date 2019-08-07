@@ -8,7 +8,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         Debug.Log("Button click");
     }
-    public void EndGame() {
+    public void EndGame()
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying=false;
 #else
