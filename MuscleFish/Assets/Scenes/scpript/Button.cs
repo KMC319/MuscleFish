@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    public void onclick()
+    public void Onclick()
     {
         Debug.Log("Button click");
-        //非表示にする
-        gameObject.SetActive(false);
+        
     }
     // Start is called before the first frame update
     void Start()
