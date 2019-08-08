@@ -1,5 +1,7 @@
+using Game.Player;
+
 namespace Game.System {
     public interface IGameStart {
-        void StartGame();
+        void StartGame(PlayerStatusManager player);
     }
 }

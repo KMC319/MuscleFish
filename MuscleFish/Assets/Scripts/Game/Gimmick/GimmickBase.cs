@@ -9,31 +9,33 @@ namespace Game.Gimmick {
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class GimmickBase : MonoBehaviour, IGameStart, IGameEnd {
-        private Rigidbody2D rigid;
-        private bool isGaming;
+        protected Rigidbody2D Rigid;
+        protected bool IsGaming;
         private float time;
-        private float alpha;
+        protected float Alpha;
 
-        public PlayerStatusManager Player { get; set; }
+        private PlayerStatusManager player;
 
         private void Awake() {
-            rigid = GetComponent<Rigidbody2D>();
+            Rigid = GetComponent<Rigidbody2D>();
         }
 
         private void Update() {
-            if (!isGaming) return;
+            if (!IsGaming) return;
             time += Time.deltaTime;
-            rigid.velocity = new Vector3(-Player.Speed, 5f * Mathf.Sin(alpha * time));
+            Rigid.velocity = new Vector3(-player.Speed, 5f * Mathf.Sin(Alpha * time));
+            if(transform.position.x < -200) Destroy(gameObject);
         }
 
-        public void StartGame() {
-            isGaming = true;
-            alpha = Random.Range(-Mathf.PI, Mathf.PI);
+        public virtual void StartGame(PlayerStatusManager player) {
+            IsGaming = true;
+            this.player = player;
+            Alpha = Random.Range(-Mathf.PI, Mathf.PI);
         }
 
         public void EndGame() {
-            rigid.velocity = Vector2.zero;
-            isGaming = false;
+            Rigid.velocity = Vector2.zero;
+            IsGaming = false;
         }
     }
 }
