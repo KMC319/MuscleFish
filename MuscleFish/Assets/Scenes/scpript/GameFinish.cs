@@ -19,6 +19,6 @@ public class GameFinish : MonoBehaviour
     }
     public void OnRetry()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Scene");
     }
 }
