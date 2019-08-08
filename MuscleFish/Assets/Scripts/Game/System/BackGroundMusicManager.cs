@@ -30,7 +30,7 @@ namespace Game.System {
                 StartCoroutine(FadeOut(sourcePlaying));
             }
 
-            var volume = 0.3f * index / (clips.Length - 1) + 0.1f;
+            var volume = 0.3f;
             sourcePlaying = emptySource;
             StartCoroutine(FadeIn(emptySource, rate, volume));
         }
