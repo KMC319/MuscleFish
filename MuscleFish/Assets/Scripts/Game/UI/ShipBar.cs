@@ -13,7 +13,7 @@ namespace Game.UI {
         void Update() {
             if (!isGaming) return;
             movableImg.transform.localPosition =
-                new Vector3((net.Distance / GameController.Instance.Distance * 2 - 1) * -size, movableImg.transform.localPosition.y);
+                new Vector3((net.Distance / GameController.Instance.Distance) * 2 * size - size, movableImg.transform.localPosition.y);
         }
 
         public void StartGame(PlayerStatusManager player) {

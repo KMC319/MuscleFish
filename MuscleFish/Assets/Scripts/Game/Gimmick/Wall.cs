@@ -24,13 +24,13 @@ namespace Game.Gimmick {
             temp.Direction = 1;
         }
 
-        public override void StartGame(PlayerStatusManager player) {
-            base.StartGame(player);
+        protected override void OnEnable() {
+            base.OnEnable();
             Alpha = 0;
         }
 
         private void BreakWall() {
-            IsGaming = false;
+            IsActive = false;
             Rigid.velocity = Vector2.zero;
             var rand = Random.Range(-Mathf.PI / 2f, Mathf.PI / 2f);
             Rigid.velocity = new Vector2(Mathf.Cos(rand), Mathf.Sin(rand)) * 300;

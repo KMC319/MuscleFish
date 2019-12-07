@@ -18,13 +18,14 @@ namespace Game.UI {
 
         public void SetObject() {
             var level = Mathf.Clamp(player.Level, 1, 5) - 1;
-            Debug.Log(level);
             var scoreType = level > 2 ? EScoreType.High : EScoreType.Low;
             var cookedType = GameController.Instance.EndingType == EEnding.Bomb ? ECookedType.Bomb : ECookedType.Raw;
             cookedImage.sprite = images.First(x => x.name == GameController.Instance.Name && x.menu == cookedType).sprite;
             var temp = messages.Where(x => x.menu == cookedType || x.menu == ECookedType.Both).Where(x => x.score == scoreType).ToArray();
             messageText.text = temp[Random.Range(0, temp.Length)].message;
-            rankText.text = "おいしさランク：" + ranks[level];
+            rankText.text = GameController.GameMode == GameMode.TimeAttack
+                ? $"おいしさランク： {ranks[level]}"
+                : $"{player.Distance/10f:F2} M";
         }
 
 

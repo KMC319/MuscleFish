@@ -24,30 +24,10 @@ public class controll : MonoBehaviour
     void Move()
     {
         Vector2 Position = transform.position;
-
-        if (Input.GetKey("up"))
-        {
-            Position.y += SPEED.y;
-        }
-        else if (Input.GetKey("down"))
-        {
-            Position.y -= SPEED.y;
-        }
+        var y = Input.GetAxisRaw("Vertical");
+        if (y == 0) return;
+        y = y > 0 ? 1 : -1;
+        Position.y += y * SPEED.y;
         transform.position = Position;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "girl")
-        {
-
-
-            this.gameObject.SetActive(false);
-
-            Invoke("GoToGameOver", 1.5f);
-        }
-        void GoToGameOver()
-        {
-            SceneManager.LoadScene("GO");
-        }
     }
 }

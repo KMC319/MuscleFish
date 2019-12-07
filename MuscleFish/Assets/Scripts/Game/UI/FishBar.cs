@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game.UI {
-    public class FishBar : MonoBehaviour, IGameStart ,IGameEnd{
+    public class FishBar : MonoBehaviour, IGameStart, IGameEnd {
         [SerializeField] private SpriteRenderer movableImg;
         [SerializeField] private float size = 32;
         private PlayerStatusManager player;
@@ -14,14 +14,14 @@ namespace Game.UI {
         void Update() {
             if (!isGaming) return;
             movableImg.transform.localPosition =
-                new Vector3((player.Distance / GameController.Instance.Distance * 2 - 1) * -size, movableImg.transform.localPosition.y);
+                new Vector3((player.Distance / GameController.Instance.Distance) * 2*size - size, movableImg.transform.localPosition.y);
         }
 
         public void StartGame(PlayerStatusManager player) {
             this.player = player;
             isGaming = true;
         }
-        
+
 
         public void EndGame() {
             Destroy(gameObject);

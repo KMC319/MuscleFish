@@ -25,17 +25,16 @@ namespace Game.System {
 
         private void Update() {
             MoveCursor();
-            if (Input.GetKeyDown(KeyCode.Space)) PickPlayer();
+            if (Input.GetButtonDown("Submit")) PickPlayer();
         }
 
         private void MoveCursor() {
-            var y = 0;
-            if (Input.GetKey(KeyCode.DownArrow)) y = 1;
-            if (Input.GetKey(KeyCode.UpArrow)) y = -1;
+            var y = Input.GetAxisRaw("Vertical");
 
             if (y != 0) {
+                y = y > 0 ? 1 : -1;
                 if (interval <= 0) {
-                    Index = (Index + players.Length + y) % players.Length;
+                    Index = (Index + players.Length - (int)y) % players.Length;
                     interval = 0.2f;
                 }
 

@@ -20,6 +20,7 @@ namespace Game.Player {
         private float distance;
 
         private int direction = 1;
+
         public int Direction {
             get => direction;
             set {
@@ -31,6 +32,7 @@ namespace Game.Player {
         private bool isGaming;
         public bool IsFloating { get; set; }
         public float Speed => speed * Mathf.Pow(1.4f, level) * Direction;
+        public float MaxSpeed => speed * Mathf.Pow(1.4f, 5);
         public float Distance => distance;
 
         private int level = 0;
@@ -47,10 +49,6 @@ namespace Game.Player {
         private void Awake() {
             bgmer = FindObjectOfType<BackGroundMusicManager>();
             se = GetComponent<AudioSource>();
-        }
-
-        private void Start() {
-            distance = GameController.Instance.Distance;
         }
 
         public void StartGame(PlayerStatusManager player) {
@@ -71,8 +69,8 @@ namespace Game.Player {
 
         private void FixedUpdate() {
             if (!isGaming) return;
-            distance -= Speed * Time.fixedDeltaTime;
-            if (distance <= 0) {
+            distance += Speed * Time.fixedDeltaTime;
+            if (GameController.Instance.Distance - distance <= 0) {
                 isGaming = false;
                 Destroy(GetComponent<controller>());
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -102,8 +100,8 @@ namespace Game.Player {
         }
 
         private void ApplyLevelChange() {
-            if(!isGaming) return;
-            bgmer.PlayWithFade(Mathf.Clamp(Direction*(Level - 1), 0, 4));
+            if (!isGaming) return;
+            bgmer.PlayWithFade(Mathf.Clamp(Direction * (Level - 1), 0, 4));
         }
 
         public void SoundUo() {
